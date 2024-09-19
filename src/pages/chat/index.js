@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import classNames from "classnames";
-import Carousel from "../components/Carousel";
-import { items } from "../utils/items";
-import useIsMobile from "../utils/useIsMobile";
+import Carousel from "../../components/common/Carousel";
+import { items } from "../../utils/items";
+import useIsMobile from "../../utils/useIsMobile";
 
 const Chat = () => {
   const isMobile = useIsMobile();

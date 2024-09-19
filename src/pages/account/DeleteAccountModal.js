@@ -1,5 +1,5 @@
 import React from "react";
-import Modal from "../../components/Modal";
+import Modal from "../../components/modal/Modal";
 
 const DeleteAccountModal = ({ visible, setVisible }) => {
   return (

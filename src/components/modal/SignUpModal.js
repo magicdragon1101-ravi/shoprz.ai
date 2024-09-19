@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Modal from "./Modal";
-import useIsMobile from "../utils/useIsMobile";
+import useIsMobile from "../../utils/useIsMobile";
 
 const SignUpModal = ({ visible, setVisible }) => {
   const isMobile = useIsMobile();

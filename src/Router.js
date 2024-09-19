@@ -1,18 +1,18 @@
 import { createBrowserRouter, Outlet } from "react-router-dom";
 
-import MainLayout from "./components/MainLayout";
+import MainLayout from "./components/layout/MainLayout";
 
 import Home from "./pages/Home";
-import Login from "./pages/Login";
-import SignUp from "./pages/SignUp";
-import SignOut from "./pages/SignOut";
-import Verify from "./pages/Verify";
-import ContactUs from "./pages/ContactUs";
-import CreateProfile from "./pages/CreateProfile";
+import Login from "./pages/auth/Login";
+import SignUp from "./pages/auth/SignUp";
+import SignOut from "./pages/auth/SignOut";
+import Verify from "./pages/auth/Verify";
+import ContactUs from "./pages/contactus";
 import Account from "./pages/account";
-import Chat from "./pages/Chat";
-import Detail from "./pages/Detail";
-import NotFound404 from "./pages/NotFound404";
+import CreateProfile from "./pages/account/CreateProfile";
+import Chat from "./pages/chat";
+import Detail from "./pages/chat/Detail";
+import NotFound404 from "./pages/404";
 
 const routes = [
   {

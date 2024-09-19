@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import useIsMobile from "../utils/useIsMobile";
+import useIsMobile from "../../utils/useIsMobile";
 
 const Login = () => {
   const navigate = useNavigate();
