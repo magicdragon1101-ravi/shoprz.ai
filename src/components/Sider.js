@@ -10,7 +10,7 @@ const Sider = ({ visible, setVisible }) => {
   const MenuItem = ({ src, alt, label, onClick, classNames }) => (
     <div
       onClick={onClick}
-      className={`flex flex-row md:flex-col md:justify-center items-center py-1.5 px-0.5 ${classNames}`}
+      className={`flex flex-row md:flex-col md:justify-center items-center cursor-pointer py-1.5 px-0.5 ${classNames}`}
     >
       <img src={src} width="24" height="24" alt={alt} className="mr-1.5 md:mr-0" />
       <span className="text-sm md:mt-1.5">{label}</span>
@@ -45,14 +45,29 @@ const Sider = ({ visible, setVisible }) => {
                     src="/assets/icons/family_home.png"
                     alt="Home"
                     label="Home"
-                    onClick={() => setVisible(false)}
+                    onClick={() => {
+                      navigate("/");
+                      setVisible(false);
+                    }}
                     classNames="mb-3 px-3"
                   />
                   <div className="flex flex-col w-full">
                     <div className="flex flex-row w-full justify-between items-center mb-3">
-                      <MenuItem src="/assets/icons/archive-l.png" alt="Chats" label="Chats" classNames="px-3" />
+                      <MenuItem
+                        src="/assets/icons/archive-l.png"
+                        alt="Chats"
+                        label="Chats"
+                        onClick={() => {
+                          navigate("/chat");
+                          setVisible(false);
+                        }}
+                        classNames="px-3"
+                      />
                       <div
-                        onClick={() => navigate("/")}
+                        onClick={() => {
+                          navigate("/chat");
+                          setVisible(false);
+                        }}
                         className="bg-[url('/public/assets/icons/arrow_drop_up.png')] bg-cover bg-center w-6 h-6"
                       ></div>
                     </div>
@@ -90,7 +105,16 @@ const Sider = ({ visible, setVisible }) => {
                     </div>
                   </div>
                   <hr className="my-3" />
-                  <MenuItem src="/assets/icons/answer.png" alt="New Chat" label="New Chat" classNames="mb-3 px-3" />
+                  <MenuItem
+                    src="/assets/icons/answer.png"
+                    alt="New Chat"
+                    label="New Chat"
+                    onClick={() => {
+                      navigate("/chat");
+                      setVisible(false);
+                    }}
+                    classNames="mb-3 px-3"
+                  />
                 </div>
               </div>
 
@@ -124,16 +148,26 @@ const Sider = ({ visible, setVisible }) => {
         <div className="sticky top-0 bottom-0 w-20 border-r shadow-sm">
           <div className="flex flex-col h-full justify-between items-center py-5">
             <div className="flex flex-col w-full gap-3 mt-2">
-              <MenuItem src="/assets/icons/family_home.png" alt="Home" label="Home" />
-              <MenuItem src="/assets/icons/archive-l.png" alt="Chats" label="Chats" />
+              <MenuItem src="/assets/icons/family_home.png" alt="Home" label="Home" onClick={() => navigate("/")} />
+              <MenuItem src="/assets/icons/archive-l.png" alt="Chats" label="Chats" onClick={() => navigate("/chat")} />
 
               <div className="border border-solid w-full" />
 
-              <MenuItem src="/assets/icons/add_circle-l.png" alt="New Chat" label="New Chat" />
+              <MenuItem
+                src="/assets/icons/add_circle-l.png"
+                alt="New Chat"
+                label="New Chat"
+                onClick={() => navigate("/chat")}
+              />
             </div>
 
             <div className="flex flex-col items-center py-6 px-0.5">
-              <MenuItem src="/assets/icons/settings.png" alt="Settings" label="Settings" />
+              <MenuItem
+                src="/assets/icons/settings.png"
+                alt="Settings"
+                label="Settings"
+                onClick={() => navigate("/settings")}
+              />
             </div>
           </div>
         </div>
