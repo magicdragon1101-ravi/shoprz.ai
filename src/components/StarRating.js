@@ -25,7 +25,7 @@ const StarRating = ({ rating, onRatingChange }) => {
       return (
         <span
           key={index}
-          className={classNames("text-3xl cursor-pointer", filled ? "text-orange" : "text-gray-300")}
+          className={classNames("text-2xl cursor-pointer", filled ? "text-orange" : "text-gray-300")}
           onMouseEnter={() => handleMouseEnter(starValue)}
           onMouseLeave={handleMouseLeave}
           onClick={() => handleClick(starValue)}
