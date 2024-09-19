@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import React from "react";
 
 const Home = () => {
@@ -51,7 +52,7 @@ const Home = () => {
 
   const CategoryCard = ({ category }) => {
     return (
-      <div className={`flex items-center gap-1.5 rounded-full font-semibold py-2.5 px-3 ${category.bgColor}`}>
+      <div className={classNames("flex items-center gap-1.5 rounded-full font-semibold py-2.5 px-3", category.bgColor)}>
         <img src={category.icon} alt={category.name} className="w-6 h-6" />
         <span>{category.name}</span>
       </div>
@@ -61,8 +62,8 @@ const Home = () => {
   return (
     <div className="flex flex-col md:flex-row w-full justify-between items-center">
       <div className="flex flex-col flex-1 justify-center text-center md:text-left p-4 md:p-6">
-        <h1 className="font-bold text-2xl md:text-5xl">
-          Find Your <span className="text-[#4971BD]">Ideal</span> Product
+        <h1 className="text-2xl md:text-5xl font-bold">
+          Find Your <span className="text-blue">Ideal</span> Product
         </h1>
         <p className="text-xl md:text-2xl text-gray-700 mt-3">
           Customized to Your <span className="font-bold">Needs</span>, Guaranteed at the{" "}
@@ -78,7 +79,7 @@ const Home = () => {
         </div>
       </div>
       <div className="hidden md:block h-full">
-        <div className="bg-[url('/public/assets/bg/home_bg.png')] w-[496px] h-full bg-cover"></div>
+        <div className="bg-[url('/public/assets/bg/home_bg.png')] w-[496px] h-full bg-cover bg-center" />
       </div>
     </div>
   );

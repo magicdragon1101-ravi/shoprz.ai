@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useIsMobile from "../utils/useIsMobile";
 
 const Login = () => {
+  const navigate = useNavigate();
   const isMobile = useIsMobile();
   const [showPassword, setShowPassword] = useState(false);
 
@@ -12,47 +13,31 @@ const Login = () => {
 
   if (isMobile) {
     return (
-      <div className="flex flex-col w-full px-4 mx-4">
+      <div className="flex flex-col w-full mx-4 p-4">
         <div className="mt-20">
-          <p className="flex text-gray-600 mb-2">Welcome back</p>
-          <h1 className="font-bold text-xl">Sign In</h1>
+          <p className="mb-2">Welcome back</p>
+          <h1 className="text-xl font-bold">Sign In</h1>
         </div>
-        <form className="mt-6">
+        <form className="mt-8">
           <div className="flex flex-col w-full mb-4">
             <label htmlFor="email" className="sr-only">
               Email
             </label>
-            <input
-              id="email"
-              type="email"
-              placeholder="Email"
-              className="w-full border rounded-full py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-300"
-              required
-            />
+            <input id="email" type="email" placeholder="Email" required />
           </div>
           <div className="flex flex-col w-full mb-4 relative">
             <label htmlFor="password" className="sr-only">
               Password
             </label>
-            <input
-              id="password"
-              type={showPassword ? "text" : "password"}
-              placeholder="Password"
-              className="w-full border rounded-full py-3 px-4 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-300"
-              required
-            />
-            <button
-              type="button"
-              onClick={togglePasswordVisibility}
-              className="absolute inset-y-0 right-0 flex items-center pr-3"
-              aria-label={showPassword ? "Hide password" : "Show password"}
-            >
+            <input id="password" type={showPassword ? "text" : "password"} placeholder="Password" required />
+            <div className="absolute inset-y-0 right-0 flex items-center pr-3">
               {showPassword ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5 text-gray-600"
                   viewBox="0 0 20 20"
                   fill="currentColor"
+                  onClick={togglePasswordVisibility}
                 >
                   <path d="M10 3a7 7 0 00-6.32 10.49l-1.75 1.75a1 1 0 001.42 1.42l1.75-1.75A7 7 0 1010 3zm0 12a5 5 0 01-4.5-7.5A8.993 8.993 0 0010 17a8.993 8.993 0 004.5-2.5A5 5 0 0110 15z" />
                   <path d="M14.32 12.9A5 5 0 0015 10h-1a4 4 0 01-6.32 4.9l1.32 1.32a6.978 6.978 0 004.32-1.32zM5 5.34A10.01 10.01 0 00.14 10c-.04.18-.14.35-.14.5a1 1 0 001.18 1.18c.04-.18.14-.35.14-.5a8.01 8.01 0 014.6-7.16l1.32 1.32A9.968 9.968 0 005 5.34zM10 1a9 9 0 00-6.32 15.49l-1.75 1.75a1 1 0 001.42 1.42l1.75-1.75A9 9 0 1010 1z" />
@@ -61,98 +46,89 @@ const Login = () => {
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5 text-gray-600"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  onClick={togglePasswordVisibility}
                 >
-                  <path d="M10 3a7 7 0 016.32 10.49l1.75 1.75a1 1 0 01-1.42 1.42l-1.75-1.75A7 7 0 1010 3zm0 12a5 5 0 004.5-7.5A8.993 8.993 0 0010 17a8.993 8.993 0 01-4.5-2.5A5 5 0 0010 15z" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13.875 18.825A6.978 6.978 0 0012 19.5a6.978 6.978 0 00-1.875-.675M6.75 12c-.42 0-.83.036-1.225.105M4.5 12C3.635 9.325 6.273 6.75 12 6.75s8.365 2.575 7.5 5.25c-.625 2.625-3.273 5.25-7.5 5.25M12 4.5c-3.25 0-5.743 1.425-7.5 3.675M12 19.5c3.25 0 5.743-1.425 7.5-3.675M15.75 12c.42 0 .83-.036 1.225-.105M19.5 12c.865 2.675-1.773 5.25-7.5 5.25s-8.365-2.575-7.5-5.25c.625-2.625 3.273-5.25 7.5-5.25"
+                  />
                 </svg>
               )}
-            </button>
+            </div>
           </div>
           <div className="flex justify-end mb-4">
             <Link to="#" className="text-[#4971BD] hover:underline">
               Forgot password?
             </Link>
           </div>
-          <div className="mb-8">
-            <button
-              type="submit"
-              className="w-full bg-[#4971BD] text-white rounded-full py-3 hover:bg-[#4971BD70] transition-colors duration-300"
-            >
-              Login
-            </button>
-          </div>
-          <div className="flex justify-center mb-3">
+          <button
+            type="submit"
+            className="w-full bg-[#4971BD] text-white rounded-full py-3 hover:bg-[#4971BD90] transition-colors duration-300"
+          >
+            Login
+          </button>
+        </form>
+        <div className="flex flex-col w-full mt-8">
+          <div className="flex w-full justify-center mb-3">
             <span>Are you a new member?&nbsp;</span>
-            <Link to="/signup" className="text-[#4971BD] hover:underline">
+            <Link to="/signup" className="text-blue hover:underline">
               Sign Up
             </Link>
           </div>
-          <div className="flex items-center mb-3">
+          <div className="flex w-full items-center mb-3">
             <hr className="flex-grow border-t border-gray-300" />
             <span className="mx-8 text-gray-600">or</span>
             <hr className="flex-grow border-t border-gray-300" />
           </div>
-          <div className="flex mb-16">
-            <button className="flex w-full border border-[#4971BD] bg-white text-[#4971BD] font-semibold rounded-full py-3 justify-center items-center hover:bg-[#4971BD] hover:text-white transition-colors duration-300">
+          <button className="btn-default font-semibold">
+            <div className="flex flex-row w-full justify-center items-center">
               <div className="bg-[url('/public/assets/icons/google.png')] bg-cover bg-center w-5 h-5 mr-2.5"></div>
               <span>Sign In with Google</span>
-            </button>
-          </div>
-        </form>
+            </div>
+          </button>
+        </div>
       </div>
     );
   } else {
     return (
       <div className="flex w-full justify-center items-center">
-        <div className="flex flex-col w-[480px] mx-4 px-12 shadow-xl rounded-3xl">
-          <div className="mt-12">
-            <div className="flex items-center mb-6">
-              <div
-                className="bg-[url('/public/assets/icons/arrow_back.png')] bg-cover bg-center w-6 h-6 mr-2.5 cursor-pointer"
-                aria-label="Go back"
-              ></div>
-              <div className="bg-[url('/public/assets/logo.png')] bg-cover bg-center w-[150px] h-8"></div>
-            </div>
-            <p className="flex text-gray-600 mb-2">Welcome back</p>
-            <h1 className="font-bold text-xl">Sign In</h1>
+        <div className="flex flex-col w-[480px] shadow-xl rounded-3xl m-4 p-12">
+          <div className="flex items-center mt-4 mb-8">
+            <div
+              onClick={() => navigate("/")}
+              className="bg-[url('/public/assets/icons/arrow_back.png')] bg-cover bg-center w-6 h-6 mr-2.5 cursor-pointer"
+            />
+            <div className="bg-[url('/public/assets/logo.png')] bg-cover bg-center w-[150px] h-8" />
           </div>
-          <form className="mt-6">
+          <div className="flex flex-col w-full mb-8">
+            <p className="mb-2">Welcome back</p>
+            <h1 className="text-xl font-bold">Sign In</h1>
+          </div>
+          <form className="felx flex-col w-full mb-8">
             <div className="flex flex-col w-full mb-4">
               <label htmlFor="email" className="sr-only">
                 Email
               </label>
-              <input
-                id="email"
-                type="email"
-                placeholder="Email"
-                className="w-full border rounded-full py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-300"
-                required
-              />
+              <input id="email" type="email" placeholder="Email" required />
             </div>
             <div className="flex flex-col w-full mb-4 relative">
               <label htmlFor="password" className="sr-only">
                 Password
               </label>
-              <input
-                id="password"
-                type={showPassword ? "text" : "password"}
-                placeholder="Password"
-                className="w-full border rounded-full py-3 px-4 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-300"
-                required
-              />
-              <button
-                type="button"
-                onClick={togglePasswordVisibility}
-                className="absolute inset-y-0 right-0 flex items-center pr-3"
-                aria-label={showPassword ? "Hide password" : "Show password"}
-              >
+              <input id="password" type={showPassword ? "text" : "password"} placeholder="Password" required />
+              <div className="absolute inset-y-0 right-0 flex items-center pr-3">
                 {showPassword ? (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-5 w-5 text-gray-600"
                     viewBox="0 0 20 20"
                     fill="currentColor"
+                    onClick={togglePasswordVisibility}
                   >
                     <path d="M10 3a7 7 0 00-6.32 10.49l-1.75 1.75a1 1 0 001.42 1.42l1.75-1.75A7 7 0 1010 3zm0 12a5 5 0 01-4.5-7.5A8.993 8.993 0 0010 17a8.993 8.993 0 004.5-2.5A5 5 0 0110 15z" />
                     <path d="M14.32 12.9A5 5 0 0015 10h-1a4 4 0 01-6.32 4.9l1.32 1.32a6.978 6.978 0 004.32-1.32zM5 5.34A10.01 10.01 0 00.14 10c-.04.18-.14.35-.14.5a1 1 0 001.18 1.18c.04-.18.14-.35.14-.5a8.01 8.01 0 014.6-7.16l1.32 1.32A9.968 9.968 0 005 5.34zM10 1a9 9 0 00-6.32 15.49l-1.75 1.75a1 1 0 001.42 1.42l1.75-1.75A9 9 0 1010 1z" />
@@ -161,45 +137,49 @@ const Login = () => {
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-5 w-5 text-gray-600"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    onClick={togglePasswordVisibility}
                   >
-                    <path d="M10 3a7 7 0 016.32 10.49l1.75 1.75a1 1 0 01-1.42 1.42l-1.75-1.75A7 7 0 1010 3zm0 12a5 5 0 004.5-7.5A8.993 8.993 0 0010 17a8.993 8.993 0 01-4.5-2.5A5 5 0 0010 15z" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13.875 18.825A6.978 6.978 0 0012 19.5a6.978 6.978 0 00-1.875-.675M6.75 12c-.42 0-.83.036-1.225.105M4.5 12C3.635 9.325 6.273 6.75 12 6.75s8.365 2.575 7.5 5.25c-.625 2.625-3.273 5.25-7.5 5.25M12 4.5c-3.25 0-5.743 1.425-7.5 3.675M12 19.5c3.25 0 5.743-1.425 7.5-3.675M15.75 12c.42 0 .83-.036 1.225-.105M19.5 12c.865 2.675-1.773 5.25-7.5 5.25s-8.365-2.575-7.5-5.25c.625-2.625 3.273-5.25 7.5-5.25"
+                    />
                   </svg>
                 )}
-              </button>
+              </div>
             </div>
-            <div className="flex justify-end mb-4">
-              <Link to="#" className="text-[#4971BD] hover:underline">
+            <div className="flex w-full justify-end items-center mb-4">
+              <Link to="#" className="text-blue hover:underline">
                 Forgot password?
               </Link>
             </div>
-            <div className="mb-8">
-              <button
-                type="submit"
-                className="w-full bg-[#4971BD] text-white rounded-full py-3 hover:bg-[#4971BD70] transition-colors duration-300"
-              >
-                Login
-              </button>
-            </div>
-            <div className="flex justify-center mb-3">
+            <button type="submit" className="btn-primary">
+              Login
+            </button>
+          </form>
+          <div className="flex flex-col w-full mb-4">
+            <div className="flex w-full justify-center mb-3">
               <span>Are you a new member?&nbsp;</span>
-              <Link to="/signup" className="text-[#4971BD] hover:underline">
+              <Link to="/signup" className="text-blue hover:underline">
                 Sign Up
               </Link>
             </div>
-            <div className="flex items-center mb-3">
+            <div className="flex w-full items-center mb-3">
               <hr className="flex-grow border-t border-gray-300" />
               <span className="mx-8 text-gray-600">or</span>
               <hr className="flex-grow border-t border-gray-300" />
             </div>
-            <div className="flex mb-16">
-              <button className="flex w-full border border-[#4971BD] bg-white text-[#4971BD] font-semibold rounded-full py-3 justify-center items-center hover:bg-[#4971BD] hover:text-white transition-colors duration-300">
+            <button className="btn-default font-semibold">
+              <div className="flex flex-row w-full justify-center items-center">
                 <div className="bg-[url('/public/assets/icons/google.png')] bg-cover bg-center w-5 h-5 mr-2.5"></div>
                 <span>Sign In with Google</span>
-              </button>
-            </div>
-          </form>
+              </div>
+            </button>
+          </div>
         </div>
       </div>
     );

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import classNames from "classnames";
 
 const StarRating = ({ rating, onRatingChange }) => {
   const [hoveredRating, setHoveredRating] = useState(0);
@@ -24,7 +25,7 @@ const StarRating = ({ rating, onRatingChange }) => {
       return (
         <span
           key={index}
-          className={`cursor-pointer text-3xl ${filled ? "text-[#F2994A]" : "text-gray-300"}`}
+          className={classNames("text-3xl cursor-pointer", filled ? "text-orange" : "text-gray-300")}
           onMouseEnter={() => handleMouseEnter(starValue)}
           onMouseLeave={handleMouseLeave}
           onClick={() => handleClick(starValue)}
