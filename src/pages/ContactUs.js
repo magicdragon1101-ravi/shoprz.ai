@@ -6,35 +6,23 @@ const ContactUs = () => {
 
   if (isMobile) {
     return (
-      <div className="flex flex-col w-full mx-4 px-4">
+      <div className="flex flex-col w-full mx-4 p-4">
         <div className="mt-6">
-          <h1 className="font-bold text-2xl mb-2">Contact Us</h1>
-          <p className="text-gray-600 mb-4">Submit your message, and we'll be in touch with you soon.</p>
+          <h1 className="text-2xl font-bold mb-2">Contact Us</h1>
+          <p>Submit your message, and we'll be in touch with you soon.</p>
         </div>
-        <form className="mt-6">
+        <form className="mt-8">
           <div className="flex flex-col w-full mb-4">
             <label htmlFor="name" className="sr-only">
               Name
             </label>
-            <input
-              id="name"
-              type="text"
-              placeholder="Name"
-              className="w-full border rounded-full py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-300"
-              required
-            />
+            <input id="name" type="text" placeholder="Name" required />
           </div>
           <div className="flex flex-col w-full mb-4">
             <label htmlFor="email" className="sr-only">
               Email
             </label>
-            <input
-              id="email"
-              type="email"
-              placeholder="Email"
-              className="w-full border rounded-full py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-300"
-              required
-            />
+            <input id="email" type="email" placeholder="Email" required />
           </div>
           <div className="flex flex-col w-full mb-4">
             <label htmlFor="message" className="sr-only">
@@ -43,7 +31,7 @@ const ContactUs = () => {
             <textarea
               id="message"
               placeholder="Your message..."
-              className="w-full border rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full rounded-xl py-2.5 px-4 border transition duration-300 ease-in-out transform focus:outline-none focus:ring-1 focus:ring-blue focus:border-blue"
               rows="4"
               required
             />
@@ -62,35 +50,23 @@ const ContactUs = () => {
   } else {
     return (
       <div className="flex w-full justify-center items-center">
-        <div className="flex flex-col w-[480px] mx-4 px-12 shadow-xl rounded-3xl">
-          <div className="mt-12">
-            <h1 className="font-bold text-2xl mb-2">Contact Us</h1>
-            <p className="text-gray-600 mb-4">Submit your message, and we'll be in touch with you soon.</p>
+        <div className="flex flex-col w-[480px] shadow-xl rounded-3xl m-4 p-12">
+          <div className="mb-8">
+            <h1 className="text-2xl font-bold mb-2">Contact Us</h1>
+            <p>Submit your message, and we'll be in touch with you soon.</p>
           </div>
-          <form className="mt-6">
+          <form className="flex flex-col w-full">
             <div className="flex flex-col w-full mb-4">
               <label htmlFor="name" className="sr-only">
                 Name
               </label>
-              <input
-                id="name"
-                type="text"
-                placeholder="Name"
-                className="w-full border rounded-full py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-300"
-                required
-              />
+              <input id="name" type="text" placeholder="Name" required />
             </div>
             <div className="flex flex-col w-full mb-4">
               <label htmlFor="email" className="sr-only">
                 Email
               </label>
-              <input
-                id="email"
-                type="email"
-                placeholder="Email"
-                className="w-full border rounded-full py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-300"
-                required
-              />
+              <input id="email" type="email" placeholder="Email" required />
             </div>
             <div className="flex flex-col w-full mb-4">
               <label htmlFor="message" className="sr-only">
@@ -99,19 +75,17 @@ const ContactUs = () => {
               <textarea
                 id="message"
                 placeholder="Your message..."
-                className="w-full border rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-300"
+                className="w-full rounded-xl py-2.5 px-4 border transition duration-300 ease-in-out transform focus:outline-none focus:ring-1 focus:ring-blue focus:border-blue"
                 rows="8"
                 required
               />
             </div>
-            <div className="mb-12">
-              <button
-                type="submit"
-                className="w-full bg-[#4971BD] text-white rounded-full py-3 hover:bg-[#4971BD90] transition-colors duration-300"
-              >
-                Contact Us
-              </button>
-            </div>
+            <button
+              type="submit"
+              className="w-full bg-[#4971BD] text-white rounded-full py-3 hover:bg-[#4971BD90] transition-colors duration-300"
+            >
+              Contact Us
+            </button>
           </form>
         </div>
       </div>

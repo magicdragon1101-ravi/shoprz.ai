@@ -9,10 +9,9 @@ import SignOut from "./pages/SignOut";
 import Verify from "./pages/Verify";
 import ContactUs from "./pages/ContactUs";
 import CreateProfile from "./pages/CreateProfile";
-import Profile from "./pages/Profile";
+import Account from "./pages/account";
 import Chat from "./pages/Chat";
 import Detail from "./pages/Detail";
-
 import NotFound404 from "./pages/NotFound404";
 
 const routes = [
@@ -55,7 +54,7 @@ const routes = [
       },
       {
         path: "/profile",
-        element: <Profile />,
+        element: <Account />,
       },
       {
         path: "/chat",
@@ -65,36 +64,8 @@ const routes = [
         path: "/detail",
         element: <Detail />,
       },
-      // {
-      //   path: "/settings",
-      //   element: <Settings />,
-      // },
-      // {
-      //   path: "/reports",
-      //   element: <Reports />,
-      // },
-      // {
-      //   path: "/logout",
-      //   element: <Logout />,
-      // },
     ],
   },
-  // {
-  //   path: "/login",
-  //   element: <Login />,
-  // },
-  // {
-  //   path: "/register",
-  //   element: <Register />,
-  // },
-  // {
-  //   path: "/reset-password",
-  //   element: <ResetPassword />,
-  // },
-  // {
-  //   path: "/contact-us",
-  //   element: <ContactUs />,
-  // },
 ];
 
 const router = createBrowserRouter(routes);
