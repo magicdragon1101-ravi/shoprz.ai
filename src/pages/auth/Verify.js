@@ -1,5 +1,5 @@
 import React from "react";
-import useIsMobile from "../utils/useIsMobile";
+import useIsMobile from "../../utils/useIsMobile";
 
 const Verify = () => {
   const isMobile = useIsMobile();

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import LoginModal from "./LoginModal";
-import SignUpModal from "./SignUpModal";
+import LoginModal from "../modal/LoginModal";
+import SignUpModal from "../modal/SignUpModal";
 
 const Header = (props) => {
   const navigate = useNavigate();

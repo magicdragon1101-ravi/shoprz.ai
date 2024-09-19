@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Header from "./Header";
-import Sider from "./Sider";
+import Header from "../element/Header";
+import Sider from "../element/Sider";
 
 const MainLayout = ({ children }) => {
   const [menuHandler, setMenuHandler] = useState(false);

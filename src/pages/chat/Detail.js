@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { items } from "../utils/items";
-import StarRating from "../components/StarRating";
-import Carousel from "../components/Carousel";
+import { items } from "../../utils/items";
+import Carousel from "../../components/common/Carousel";
+import StarRating from "../../components/common/StarRating"
 import classNames from "classnames";
 
 const Detail = () => {
