@@ -45,11 +45,11 @@ const Chat = () => {
           {list.length === 0 ? (
             <div className="flex flex-col w-full">
               <h1 className="text-[22px] font-bold leading-10 my-4 py-3">What do we start with your new TV Inquiry?</h1>
-              <div className="flex flex-row w-full items-center">
+              <div className="flex flex-row items-center w-full">
                 <div className="w-10 h-10 mr-3">
                   <div className="bg-[url('/public/assets/icons/init.png')] bg-cover bg-center w-full h-full aspect-square rounded-full" />
                 </div>
-                <div className="flex flex-col text-left text-md font-semibold">
+                <div className="flex flex-col font-semibold text-left text-md">
                   <p>I’m here to assist you in planning your next purchase.</p>
                   <p>Ask me anything about TV!</p>
                 </div>
@@ -57,7 +57,7 @@ const Chat = () => {
             </div>
           ) : (
             <div className="flex flex-col w-full mt-4">
-              <div className="flex flex-row w-full items-center space-x-3">
+              <div className="flex flex-row items-center w-full space-x-3">
                 <div className="w-10 h-10">
                   <div className="bg-[url('/public/assets/icons/question.png')] bg-cover bg-center w-full h-full aspect-square rounded-full" />
                 </div>
@@ -76,8 +76,8 @@ const Chat = () => {
                   ) : (
                     <div className="flex flex-col w-full">
                       <p className="mb-3">When looking for a smart TV, here are a few factors to consider:</p>
-                      <p className="font-semibold mb-1">Smart Features</p>
-                      <ul className="list-disc list-inside pl-2">
+                      <p className="mb-1 font-semibold">Smart Features</p>
+                      <ul className="pl-2 list-disc list-inside">
                         <li>Ensure compatibility with Google Assistant, Alexa, or Apple HomeKit.</li>
                         <li>Look for apps you use frequently, like Netflix, Hulu, YouTube, and others.</li>
                       </ul>
@@ -89,8 +89,8 @@ const Chat = () => {
               <Carousel showButton={true}>
                 {items.map((item, index) => (
                   <Link key={index} to={`/detail?${item.id}`}>
-                    <div className="flex flex-col flex-shrink-0 snap-start w-[215px] h-[132px] border-2 rounded-lg py-1.5 px-3">
-                      <div className="relative bg-[url('/public/assets/image/default.png')] bg-stretch bg-no-repeat w-[191px] h-[120px] bg-center rounded">
+                    <div className="flex flex-col flex-shrink-0 snap-start w-[200px] h-[180px] border-2 rounded-lg py-1.5 px-3">
+                      <div className="relative bg-[url('/public/assets/image/default.png')] bg-stretch bg-no-repeat w-full h-full bg-center rounded">
                         <div className="absolute bg-green-50 text-green font-semibold -left-1.5 -top-1 py-1 px-1.5 rounded-full">
                           {item.match}% matching
                         </div>
@@ -116,7 +116,7 @@ const Chat = () => {
             placeholder="Start a conversation"
             required
           />
-          <div className="flex absolute inset-y-0 right-0 items-center">
+          <div className="absolute inset-y-0 right-0 flex items-center">
             <div
               onClick={conversation.trim() ? onSend : null}
               className={classNames(
@@ -130,8 +130,8 @@ const Chat = () => {
     );
   } else {
     return (
-      <div className="flex flex-row w-full justify-between">
-        <div className="flex flex-col w-1/2 overflow-hidden justify-center text-left py-6 px-8">
+      <div className="flex flex-row justify-between w-full">
+        <div className="flex flex-col justify-center w-1/2 px-8 py-6 overflow-hidden text-left">
           <div className="flex-grow">
             <div
               onClick={() => navigate("/")}
@@ -142,11 +142,11 @@ const Chat = () => {
                 <h1 className="text-[22px] font-bold leading-10 my-4 py-3">
                   What do we start with your new TV Inquiry?
                 </h1>
-                <div className="flex flex-row w-full items-center">
+                <div className="flex flex-row items-center w-full">
                   <div className="w-10 h-10 mr-3">
                     <div className="bg-[url('/public/assets/icons/init.png')] bg-cover bg-center w-full h-full aspect-square rounded-full" />
                   </div>
-                  <div className="flex flex-col text-left text-md font-semibold">
+                  <div className="flex flex-col font-semibold text-left text-md">
                     <p>I’m here to assist you in planning your next purchase.</p>
                     <p>Ask me anything about TV!</p>
                   </div>
@@ -154,7 +154,7 @@ const Chat = () => {
               </div>
             ) : (
               <div className="flex flex-col w-full mt-4">
-                <div className="flex flex-row w-full items-center space-x-3">
+                <div className="flex flex-row items-center w-full space-x-3">
                   <div className="w-10 h-10">
                     <div className="bg-[url('/public/assets/icons/question.png')] bg-cover bg-center w-full h-full aspect-square rounded-full" />
                   </div>
@@ -173,8 +173,8 @@ const Chat = () => {
                     ) : (
                       <div className="flex flex-col w-full">
                         <p className="mb-3">When looking for a smart TV, here are a few factors to consider:</p>
-                        <p className="font-semibold mb-1">Smart Features</p>
-                        <ul className="list-disc list-inside pl-2">
+                        <p className="mb-1 font-semibold">Smart Features</p>
+                        <ul className="pl-2 list-disc list-inside">
                           <li>Ensure compatibility with Google Assistant, Alexa, or Apple HomeKit.</li>
                           <li>Look for apps you use frequently, like Netflix, Hulu, YouTube, and others.</li>
                         </ul>
@@ -186,8 +186,8 @@ const Chat = () => {
                 <Carousel showButton={true}>
                   {items.map((item, index) => (
                     <Link key={index} to={`/detail?${item.id}`}>
-                      <div className="flex flex-col flex-shrink-0 snap-start w-[215px] h-[132px] border-2 rounded-lg py-1.5 px-3">
-                        <div className="relative bg-[url('/public/assets/image/default.png')] bg-stretch bg-no-repeat w-[191px] h-[120px] bg-center rounded">
+                      <div className="flex flex-col flex-shrink-0 snap-start w-[200px] h-[180px] border-2 rounded-lg py-1.5 px-3">
+                        <div className="relative bg-[url('/public/assets/image/default.png')] bg-stretch bg-no-repeat w-full h-full bg-center rounded">
                           <div className="absolute bg-green-50 text-green font-semibold -left-1.5 -top-1 py-1 px-1.5 rounded-full">
                             {item.match}% matching
                           </div>
@@ -213,7 +213,7 @@ const Chat = () => {
               placeholder="Start a conversation"
               required
             />
-            <div className="flex absolute inset-y-0 right-0 items-center">
+            <div className="absolute inset-y-0 right-0 flex items-center">
               <div
                 onClick={conversation.trim() ? onSend : null}
                 className={classNames(
@@ -225,7 +225,7 @@ const Chat = () => {
           </div>
         </div>
         <div className="felx flex-col w-1/2 bg-[#F7F9FC]">
-          <div className="flex flex-col w-full h-full justify-center items-center">
+          <div className="flex flex-col items-center justify-center w-full h-full">
             <div className="bg-[url('/public/assets/image/Television.png')] w-[496px] h-[306px] bg-cover bg-center"></div>
             {list.length === 0 ? (
               <div className="flex flex-col w-full h-[calc(100%-306px)] justify-center items-center px-20">
@@ -233,7 +233,7 @@ const Chat = () => {
                   <div className="bg-[url('/public/assets/icons/answer.png')] w-full h-full aspect-square bg-cover bg-center" />
                 </div>
                 <div className="font-semibold">No insights</div>
-                <p className="text-center p-12">
+                <p className="p-12 text-center">
                   Here I will show your product based on your answers to help you understand them better and find the
                   perfect need.
                 </p>
@@ -243,7 +243,7 @@ const Chat = () => {
                 <div className="text-xl font-semibold my-2.5">Selections</div>
                 <div className="flex flex-col gap-2.5">
                   {items.map((item, index) => (
-                    <div key={index} className="flex flex-col bg-white rounded-lg p-3">
+                    <div key={index} className="flex flex-col p-3 bg-white rounded-lg">
                       <div className="w-fit bg-green-50 text-green py-1 px-1.5 rounded-full mb-2.5">
                         {item.match}% matching
                       </div>
