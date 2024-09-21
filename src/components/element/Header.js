@@ -11,7 +11,7 @@ const Header = (props) => {
 
   return (
     <header className="flex w-full h-16 bg-white border-b shadow-sm">
-      <div className="flex w-full justify-between items-center">
+      <div className="flex items-center justify-between w-full">
         <div className="flex items-center">
           <div
             onClick={props.callback}
@@ -24,7 +24,7 @@ const Header = (props) => {
         </div>
 
         <div className="flex items-center px-4 md:px-6">
-          <button onClick={() => setLoginVisible(true)} className="text-blue font-semibold hover:underline mr-2">
+          <button onClick={() => setLoginVisible(true)} className="mr-2 font-semibold text-blue hover:underline">
             Login
           </button>
           <button
