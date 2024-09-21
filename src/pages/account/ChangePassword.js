@@ -35,7 +35,7 @@ const ChangePassword = () => {
               {oldPasswordVisible ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-gray-600"
+                  className="w-5 h-5 text-gray-600"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                   onClick={toggleOldPasswordVisibility}
@@ -46,7 +46,7 @@ const ChangePassword = () => {
               ) : (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-gray-600"
+                  className="w-5 h-5 text-gray-600"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                   onClick={toggleOldPasswordVisibility}
@@ -72,7 +72,7 @@ const ChangePassword = () => {
               {newPasswordVisible ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-gray-600"
+                  className="w-5 h-5 text-gray-600"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                   onClick={toggleNewPasswordVisibility}
@@ -83,7 +83,7 @@ const ChangePassword = () => {
               ) : (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-gray-600"
+                  className="w-5 h-5 text-gray-600"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                   onClick={toggleNewPasswordVisibility}
@@ -109,7 +109,7 @@ const ChangePassword = () => {
               {confirmPasswordVisible ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-gray-600"
+                  className="w-5 h-5 text-gray-600"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                   onClick={toggleConfirmPasswordVisibility}
@@ -120,7 +120,7 @@ const ChangePassword = () => {
               ) : (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-gray-600"
+                  className="w-5 h-5 text-gray-600"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                   onClick={toggleConfirmPasswordVisibility}
@@ -132,10 +132,7 @@ const ChangePassword = () => {
           </div>
         </div>
         <div className="mb-8">
-          <button
-            type="submit"
-            className="btn-primary"
-          >
+          <button type="submit" className="btn btn-primary">
             <span className="font-semibold">Change Password</span>
           </button>
         </div>

@@ -25,7 +25,7 @@ const Account = () => {
       <button
         onClick={onClick}
         className={classNames(
-          "w-full text-left text-semibold font-xs md:font-md text-nowrap py-1.5 hover:text-blue transition duration-300",
+          "btn w-full text-left text-semibold font-xs md:font-md text-nowrap py-1.5 hover:text-blue transition duration-300",
           isActive ? "text-blue" : "text-gray-700"
         )}
       >
@@ -51,10 +51,10 @@ const Account = () => {
   if (isMobile) {
     return (
       <div className="flex flex-col w-full p-4">
-        <h1 className="font-bold text-2xl mb-4">My Account</h1>
+        <h1 className="mb-4 text-2xl font-bold">My Account</h1>
         <hr className="w-full my-4" />
 
-        <div className="flex flex-row w-full justify-between text-xs font-semibold items-center gap-3">
+        <div className="flex flex-row items-center justify-between w-full gap-3 text-xs font-semibold">
           {["Profile", "EditProfile", "ChangePassword", "DeleteAccount"].map((tabName) => (
             <TabButton
               key={tabName}
@@ -70,7 +70,7 @@ const Account = () => {
     );
   } else {
     return (
-      <div className="flex w-full justify-center items-center">
+      <div className="flex items-center justify-center w-full">
         <div className="flex flex-col w-[698px] shadow-xl rounded-3xl m-4 p-6">
           <h1 className="text-2xl font-bold mb-2.5">My Account</h1>
           <hr className="my-4" />

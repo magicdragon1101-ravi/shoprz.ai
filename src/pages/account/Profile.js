@@ -1,9 +1,9 @@
 const Profile = () => {
   return (
     <div className="flex flex-col w-full">
-      <div className="flex flex-col md:flex-row w-full justify-center md:justify-start items-center md:items-start mt-11 md:mt-0 mb-4">
+      <div className="flex flex-col items-center justify-center w-full mb-4 md:flex-row md:justify-start md:items-start mt-11 md:mt-0">
         <div className="bg-[url('/public/assets/avatar/xyz@anydomain.com.png')] bg-cover bg-center w-16 h-16 rounded-full md:mr-4" />
-        <h1 className="text-xl font-semibold mt-4">Maria Dosoza</h1>
+        <h1 className="mt-4 text-xl font-semibold">Maria Dosoza</h1>
       </div>
 
       <div className="flex flex-col w-full mb-4">

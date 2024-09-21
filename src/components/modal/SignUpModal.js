@@ -24,7 +24,7 @@ const SignUpModal = ({ visible, setVisible }) => {
   if (isMobile) {
     return (
       <Modal visible={visible} setVisible={setVisible}>
-        <div className="flex flex-col w-full py-12 px-6">
+        <div className="flex flex-col w-full px-6 py-12">
           <div className="flex items-center mb-8">
             <div
               onClick={onClose}
@@ -33,17 +33,17 @@ const SignUpModal = ({ visible, setVisible }) => {
             <div className="bg-[url('/public/assets/logo.png')] bg-cover bg-center w-[150px] h-8" />
           </div>
           <div className="flex flex-col w-full mb-8">
-            <h1 className="text-xl mb-2">Hey you’ve hit your free chat limit</h1>
+            <h1 className="mb-2 text-xl">Hey you’ve hit your free chat limit</h1>
             <h1 className="text-xl font-bold">Sign Up to unlock all the option</h1>
           </div>
-          <form className="felx flex-col w-full mb-8">
+          <form className="flex-col w-full mb-8 felx">
             <div className="flex flex-col w-full mb-4">
               <label htmlFor="email" className="sr-only">
                 Email
               </label>
               <input id="email" type="email" placeholder="Email" required />
             </div>
-            <div className="flex flex-col w-full mb-4 relative">
+            <div className="relative flex flex-col w-full mb-4">
               <label htmlFor="password" className="sr-only">
                 Password
               </label>
@@ -52,7 +52,7 @@ const SignUpModal = ({ visible, setVisible }) => {
                 {showPassword ? (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-gray-600"
+                    className="w-5 h-5 text-gray-600"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                     onClick={togglePasswordVisibility}
@@ -63,7 +63,7 @@ const SignUpModal = ({ visible, setVisible }) => {
                 ) : (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-gray-600"
+                    className="w-5 h-5 text-gray-600"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -79,7 +79,7 @@ const SignUpModal = ({ visible, setVisible }) => {
                 )}
               </div>
             </div>
-            <div className="flex flex-col w-full mb-4 relative">
+            <div className="relative flex flex-col w-full mb-4">
               <label htmlFor="confirm" className="sr-only">
                 Confirm Password
               </label>
@@ -88,7 +88,7 @@ const SignUpModal = ({ visible, setVisible }) => {
                 {showConfirm ? (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-gray-600"
+                    className="w-5 h-5 text-gray-600"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                     onClick={toggleConfirmVisibility}
@@ -99,7 +99,7 @@ const SignUpModal = ({ visible, setVisible }) => {
                 ) : (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-gray-600"
+                    className="w-5 h-5 text-gray-600"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -115,24 +115,24 @@ const SignUpModal = ({ visible, setVisible }) => {
                 )}
               </div>
             </div>
-            <button type="submit" className="btn-primary">
+            <button type="submit" className="btn btn-primary">
               Continue
             </button>
           </form>
           <div className="flex flex-col w-full mb-4">
-            <div className="flex w-full justify-center mb-3">
+            <div className="flex justify-center w-full mb-3">
               <span>Already have an account?&nbsp;</span>
               <Link to="#" className="text-blue hover:underline">
                 Sign In
               </Link>
             </div>
-            <div className="flex w-full items-center mb-3">
+            <div className="flex items-center w-full mb-3">
               <hr className="flex-grow border-t border-gray-300" />
               <span className="mx-8 text-gray-600">or</span>
               <hr className="flex-grow border-t border-gray-300" />
             </div>
-            <button className="btn-default font-semibold">
-              <div className="flex flex-row w-full justify-center items-center">
+            <button className="font-semibold btn btn-default">
+              <div className="flex flex-row items-center justify-center w-full">
                 <div className="bg-[url('/public/assets/icons/google.png')] bg-cover bg-center w-5 h-5 mr-2.5"></div>
                 <span>Sign Up with Google</span>
               </div>
@@ -146,7 +146,7 @@ const SignUpModal = ({ visible, setVisible }) => {
       <Modal visible={visible} setVisible={setVisible}>
         <div className="flex flex-row flex-1">
           <div className="bg-[url('/public/assets/bg/modal_bg.png')] bg-cover bg-center w-1/2 rounded-l-3xl" />
-          <div className="flex flex-col p-12 w-1/2">
+          <div className="flex flex-col w-1/2 p-12">
             <div
               onClick={onClose}
               className="absolute top-6 right-6 bg-[url('/public/assets/icons/close.png')] bg-cover bg-center cursor-pointer w-6 h-6"
@@ -155,17 +155,17 @@ const SignUpModal = ({ visible, setVisible }) => {
               <div className="bg-[url('/public/assets/logo.png')] bg-cover bg-center w-[150px] h-8" />
             </div>
             <div className="flex flex-col w-full mb-8">
-              <h1 className="text-xl mb-2">Hey you’ve hit your free chat limit</h1>
+              <h1 className="mb-2 text-xl">Hey you’ve hit your free chat limit</h1>
               <h1 className="text-xl font-bold">Sign Up to unlock all the option</h1>
             </div>
-            <form className="felx flex-col w-full mb-8">
+            <form className="flex-col w-full mb-8 felx">
               <div className="flex flex-col w-full mb-4">
                 <label htmlFor="email" className="sr-only">
                   Email
                 </label>
                 <input id="email" type="email" placeholder="Email" required />
               </div>
-              <div className="flex flex-col w-full mb-4 relative">
+              <div className="relative flex flex-col w-full mb-4">
                 <label htmlFor="password" className="sr-only">
                   Password
                 </label>
@@ -174,7 +174,7 @@ const SignUpModal = ({ visible, setVisible }) => {
                   {showPassword ? (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 text-gray-600"
+                      className="w-5 h-5 text-gray-600"
                       viewBox="0 0 20 20"
                       fill="currentColor"
                       onClick={togglePasswordVisibility}
@@ -185,7 +185,7 @@ const SignUpModal = ({ visible, setVisible }) => {
                   ) : (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 text-gray-600"
+                      className="w-5 h-5 text-gray-600"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -201,7 +201,7 @@ const SignUpModal = ({ visible, setVisible }) => {
                   )}
                 </div>
               </div>
-              <div className="flex flex-col w-full mb-4 relative">
+              <div className="relative flex flex-col w-full mb-4">
                 <label htmlFor="confirm" className="sr-only">
                   Confirm Password
                 </label>
@@ -210,7 +210,7 @@ const SignUpModal = ({ visible, setVisible }) => {
                   {showConfirm ? (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 text-gray-600"
+                      className="w-5 h-5 text-gray-600"
                       viewBox="0 0 20 20"
                       fill="currentColor"
                       onClick={toggleConfirmVisibility}
@@ -221,7 +221,7 @@ const SignUpModal = ({ visible, setVisible }) => {
                   ) : (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 text-gray-600"
+                      className="w-5 h-5 text-gray-600"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -237,24 +237,24 @@ const SignUpModal = ({ visible, setVisible }) => {
                   )}
                 </div>
               </div>
-              <button type="submit" className="btn-primary">
+              <button type="submit" className="btn btn-primary">
                 Continue
               </button>
             </form>
             <div className="flex flex-col w-full mb-4">
-              <div className="flex w-full justify-center mb-3 text-nowrap">
+              <div className="flex justify-center w-full mb-3 text-nowrap">
                 <span>Already have an account?&nbsp;</span>
                 <Link to="#" className="text-nowrap text-blue hover:underline">
                   Sign In
                 </Link>
               </div>
-              <div className="flex w-full items-center mb-3">
+              <div className="flex items-center w-full mb-3">
                 <hr className="flex-grow border-t border-gray-300" />
                 <span className="mx-8 text-gray-600">or</span>
                 <hr className="flex-grow border-t border-gray-300" />
               </div>
-              <button className="btn-default font-semibold">
-                <div className="flex flex-row w-full justify-center items-center">
+              <button className="font-semibold btn btn-default">
+                <div className="flex flex-row items-center justify-center w-full">
                   <div className="bg-[url('/public/assets/icons/google.png')] bg-cover bg-center w-6 h-6 mr-2.5"></div>
                   <span>Sign In with Google</span>
                 </div>

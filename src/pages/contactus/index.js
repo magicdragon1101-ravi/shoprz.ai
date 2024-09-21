@@ -6,9 +6,9 @@ const ContactUs = () => {
 
   if (isMobile) {
     return (
-      <div className="flex flex-col w-full mx-4 p-4">
+      <div className="flex flex-col w-full p-4 mx-4">
         <div className="mt-6">
-          <h1 className="text-2xl font-bold mb-2">Contact Us</h1>
+          <h1 className="mb-2 text-2xl font-bold">Contact Us</h1>
           <p>Submit your message, and we'll be in touch with you soon.</p>
         </div>
         <form className="mt-8">
@@ -39,7 +39,7 @@ const ContactUs = () => {
           <div className="mb-8">
             <button
               type="submit"
-              className="w-full bg-[#4971BD] text-white rounded-full py-3 hover:bg-[#4971BD90] transition-colors duration-300"
+              className="btn w-full bg-[#4971BD] text-white rounded-full py-3 hover:bg-[#4971BD90] transition-colors duration-300"
             >
               Contact Us
             </button>
@@ -49,10 +49,10 @@ const ContactUs = () => {
     );
   } else {
     return (
-      <div className="flex w-full justify-center items-center">
+      <div className="flex items-center justify-center w-full">
         <div className="flex flex-col w-[480px] shadow-xl rounded-3xl m-4 p-12">
           <div className="mb-8">
-            <h1 className="text-2xl font-bold mb-2">Contact Us</h1>
+            <h1 className="mb-2 text-2xl font-bold">Contact Us</h1>
             <p>Submit your message, and we'll be in touch with you soon.</p>
           </div>
           <form className="flex flex-col w-full">
@@ -82,7 +82,7 @@ const ContactUs = () => {
             </div>
             <button
               type="submit"
-              className="w-full bg-[#4971BD] text-white rounded-full py-3 hover:bg-[#4971BD90] transition-colors duration-300"
+              className="btn w-full bg-[#4971BD] text-white rounded-full py-3 hover:bg-[#4971BD90] transition-colors duration-300"
             >
               Contact Us
             </button>

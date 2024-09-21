@@ -24,12 +24,12 @@ const Header = (props) => {
         </div>
 
         <div className="flex items-center px-4 md:px-6">
-          <button onClick={() => setLoginVisible(true)} className="mr-2 font-semibold text-blue hover:underline">
+          <button onClick={() => setLoginVisible(true)} className="mr-2 font-semibold btn text-blue hover:underline">
             Login
           </button>
           <button
             onClick={() => setSignupVisible(true)}
-            className="btn-default text-nowrap font-bold py-1.5 px-2 md:px-4"
+            className="btn btn-default text-nowrap font-bold py-1.5 px-2 md:px-4"
           >
             Sign Up
           </button>

@@ -48,7 +48,7 @@ input:focus {
   --tw-ring-color: rgb(73 113 189 / var(--tw-ring-opacity))
 }
 
-button {
+.btn {
   width: 100%;
   padding-top: 10px;
   padding-bottom: 10px;

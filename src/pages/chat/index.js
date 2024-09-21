@@ -4,6 +4,7 @@ import classNames from "classnames";
 import Carousel from "../../components/common/Carousel";
 import { items } from "../../utils/items";
 import useIsMobile from "../../utils/useIsMobile";
+import Detail from "./Detail";
 
 const Chat = () => {
   const isMobile = useIsMobile();
@@ -13,6 +14,7 @@ const Chat = () => {
 
   const [loading, setLoading] = useState(false);
   const [list, setList] = useState([]);
+  const [active, setActive] = useState(null);
 
   const onSend = () => {
     if (conversation.trim()) {
@@ -185,18 +187,20 @@ const Chat = () => {
                 <hr className="my-4" />
                 <Carousel showButton={true}>
                   {items.map((item, index) => (
-                    <Link key={index} to={`/detail?${item.id}`}>
-                      <div className="flex flex-col flex-shrink-0 snap-start w-[200px] h-[180px] border-2 rounded-lg py-1.5 px-3">
-                        <div className="relative bg-[url('/public/assets/image/default.png')] bg-stretch bg-no-repeat w-full h-full bg-center rounded">
-                          <div className="absolute bg-green-50 text-green font-semibold -left-1.5 -top-1 py-1 px-1.5 rounded-full">
-                            {item.match}% matching
-                          </div>
-                        </div>
-                        <div className="mt-2">
-                          <h2 className="text-sm font-semibold">{item.title}</h2>
+                    <div
+                      key={index}
+                      onClick={() => setActive(item.id)}
+                      className="flex flex-col flex-shrink-0 snap-start w-[200px] h-[180px] border-2 rounded-lg py-1.5 px-3 cursor-pointer"
+                    >
+                      <div className="relative bg-[url('/public/assets/image/default.png')] bg-stretch bg-no-repeat w-full h-full bg-center rounded">
+                        <div className="absolute bg-green-50 text-green font-semibold -left-1.5 -top-1 py-1 px-1.5 rounded-full">
+                          {item.match}% matching
                         </div>
                       </div>
-                    </Link>
+                      <div className="mt-2">
+                        <h2 className="text-sm font-semibold">{item.title}</h2>
+                      </div>
+                    </div>
                   ))}
                 </Carousel>
               </div>
@@ -224,36 +228,41 @@ const Chat = () => {
             </div>
           </div>
         </div>
+
         <div className="felx flex-col w-1/2 bg-[#F7F9FC]">
-          <div className="flex flex-col items-center justify-center w-full h-full">
-            <div className="bg-[url('/public/assets/image/Television.png')] w-[496px] h-[306px] bg-cover bg-center"></div>
-            {list.length === 0 ? (
-              <div className="flex flex-col w-full h-[calc(100%-306px)] justify-center items-center px-20">
-                <div className="w-10 h-10 mb-3">
-                  <div className="bg-[url('/public/assets/icons/answer.png')] w-full h-full aspect-square bg-cover bg-center" />
+          {active === null ? (
+            <div className="flex flex-col items-center justify-center w-full h-full">
+              <div className="bg-[url('/public/assets/image/Television.png')] w-[496px] h-[306px] bg-cover bg-center"></div>
+              {list.length === 0 ? (
+                <div className="flex flex-col w-full h-[calc(100%-306px)] justify-center items-center px-20">
+                  <div className="w-10 h-10 mb-3">
+                    <div className="bg-[url('/public/assets/icons/answer.png')] w-full h-full aspect-square bg-cover bg-center" />
+                  </div>
+                  <div className="font-semibold">No insights</div>
+                  <p className="p-12 text-center">
+                    Here I will show your product based on your answers to help you understand them better and find the
+                    perfect need.
+                  </p>
                 </div>
-                <div className="font-semibold">No insights</div>
-                <p className="p-12 text-center">
-                  Here I will show your product based on your answers to help you understand them better and find the
-                  perfect need.
-                </p>
-              </div>
-            ) : (
-              <div className="flex flex-col w-full h-[calc(100%-306px)] bg-[#EDF1FD] p-3">
-                <div className="text-xl font-semibold my-2.5">Selections</div>
-                <div className="flex flex-col gap-2.5">
-                  {items.map((item, index) => (
-                    <div key={index} className="flex flex-col p-3 bg-white rounded-lg">
-                      <div className="w-fit bg-green-50 text-green py-1 px-1.5 rounded-full mb-2.5">
-                        {item.match}% matching
+              ) : (
+                <div className="flex flex-col w-full h-[calc(100%-306px)] bg-[#EDF1FD] p-3">
+                  <div className="text-xl font-semibold my-2.5">Selections</div>
+                  <div className="flex flex-col gap-2.5">
+                    {items.map((item, index) => (
+                      <div key={index} className="flex flex-col p-3 bg-white rounded-lg">
+                        <div className="w-fit bg-green-50 text-green py-1 px-1.5 rounded-full mb-2.5">
+                          {item.match}% matching
+                        </div>
+                        <div className="font-semibold">{item.title}</div>
                       </div>
-                      <div className="font-semibold">{item.title}</div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )}
-          </div>
+              )}
+            </div>
+          ) : (
+            <Detail id={active} setId={setActive} />
+          )}
         </div>
       </div>
     );

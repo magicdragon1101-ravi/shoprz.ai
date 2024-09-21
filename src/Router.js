@@ -11,7 +11,6 @@ import ContactUs from "./pages/contactus";
 import Account from "./pages/account";
 import CreateProfile from "./pages/account/CreateProfile";
 import Chat from "./pages/chat";
-import Detail from "./pages/chat/Detail";
 import NotFound404 from "./pages/404";
 
 const routes = [
@@ -59,10 +58,6 @@ const routes = [
       {
         path: "/chat",
         element: <Chat />,
-      },
-      {
-        path: "/detail",
-        element: <Detail />,
       },
     ],
   },

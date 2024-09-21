@@ -8,10 +8,10 @@ const Modal = ({ visible, setVisible, children }) => {
   if (!visible) return null;
 
   return (
-    <div className="flex fixed w-full inset-0 justify-center items-center bg-black bg-opacity-50 z-30">
+    <div className="fixed inset-0 z-30 flex items-center justify-center w-full bg-black bg-opacity-50">
       <div onClick={onClose} className="w-full h-full bg-black bg-opacity-50"></div>
       <div className="absolute w-full md:w-[680px] lg:w-[1020px] p-4">
-        <div className="w-full bg-white rounded-3xl shadow-lg">{children}</div>
+        <div className="w-full bg-white shadow-lg rounded-3xl">{children}</div>
       </div>
     </div>
   );
