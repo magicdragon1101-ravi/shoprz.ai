@@ -10,8 +10,6 @@ const MenuItem = React.memo(({ src, alt, label, onClick, className }) => (
       "flex flex-row md:flex-col w-full md:justify-center items-center cursor-pointer py-2 px-3",
       className
     )}
-    role="button"
-    tabIndex={0}
   >
     <img src={src} width="24" height="24" alt={alt} className="mr-2 md:mr-0" />
     <span className="text-sm text-nowrap">{label}</span>

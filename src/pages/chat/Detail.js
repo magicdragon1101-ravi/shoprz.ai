@@ -1,14 +1,10 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { items } from "../../utils/items";
 import Carousel from "../../components/common/Carousel";
 import StarRating from "../../components/common/StarRating";
 import classNames from "classnames";
 
-const Detail = () => {
-  const navigate = useNavigate();
-
-  const id = window.location.href.split("?")[1] || 0;
+const Detail = ({ id, setId }) => {
   const item = items[id];
 
   const [tab, setTab] = useState("about");
@@ -35,7 +31,7 @@ const Detail = () => {
     <div className="flex flex-col w-full p-4">
       <div className="flex-grow">
         <div
-          onClick={() => navigate("/chat")}
+          onClick={() => setId(null)}
           className="bg-[url('/public/assets/icons/arrow_back.png')] bg-cover bg-center w-6 h-6 mt-2 mr-2.5 cursor-pointer"
         />
         <div className="mt-3">
@@ -71,7 +67,7 @@ const Detail = () => {
           </div>
           <div className="mb-2 font-semibold">Where to buy?</div>
           <Carousel showButton={false}>
-            <div className="flex flex-col flex-shrink-0 snap-start border-2 rounded-lg p-1.5 items-center justify-center px-6">
+            <div className="flex flex-col flex-shrink-0 snap-start border-2 rounded-lg p-1.5 items-center justify-center">
               <div className="flex flex-col items-center justify-center w-full mx-6 my-1">
                 <div className="relative bg-[url('/public/assets/image/Walmart.png')] bg-stretch bg-no-repeat w-[100px] h-[50px] bg-center rounded mb-1" />
                 <div className="flex flex-row gap-1.5 items-center">
@@ -83,7 +79,7 @@ const Detail = () => {
                 <div className="flex p-2 font-semibold text-white rounded-lg w-fit bg-orange">See Offer</div>
               </div>
             </div>
-            <div className="flex flex-col flex-shrink-0 snap-start border-2 rounded-lg p-1.5 items-center justify-center px-6">
+            <div className="flex flex-col flex-shrink-0 snap-start border-2 rounded-lg p-1.5 items-center justify-center">
               <div className="flex flex-col items-center justify-center w-full mx-6 my-1">
                 <div className="relative bg-[url('/public/assets/image/Samsung.png')] bg-stretch bg-no-repeat w-[100px] h-[50px] bg-center rounded mb-1" />
                 <div className="flex flex-row gap-1.5 items-center">
@@ -95,7 +91,7 @@ const Detail = () => {
                 <div className="flex p-2 font-semibold text-white rounded-lg w-fit bg-orange">See Offer</div>
               </div>
             </div>
-            <div className="flex flex-col flex-shrink-0 snap-start border-2 rounded-lg p-1.5 items-center justify-center px-6">
+            <div className="flex flex-col flex-shrink-0 snap-start border-2 rounded-lg p-1.5 items-center justify-center">
               <div className="flex flex-col items-center justify-center w-full mx-6 my-1">
                 <div className="relative bg-[url('/public/assets/image/Best_Buy.png')] bg-stretch bg-no-repeat w-[100px] h-[50px] bg-center rounded mb-1" />
                 <div className="flex flex-row gap-1.5 items-center">

@@ -13,7 +13,7 @@ const Login = () => {
 
   if (isMobile) {
     return (
-      <div className="flex flex-col w-full mx-4 p-4">
+      <div className="flex flex-col w-full p-4 mx-4">
         <div className="mt-20">
           <p className="mb-2">Welcome back</p>
           <h1 className="text-xl font-bold">Sign In</h1>
@@ -25,7 +25,7 @@ const Login = () => {
             </label>
             <input id="email" type="email" placeholder="Email" required />
           </div>
-          <div className="flex flex-col w-full mb-4 relative">
+          <div className="relative flex flex-col w-full mb-4">
             <label htmlFor="password" className="sr-only">
               Password
             </label>
@@ -34,7 +34,7 @@ const Login = () => {
               {showPassword ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-gray-600"
+                  className="w-5 h-5 text-gray-600"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                   onClick={togglePasswordVisibility}
@@ -45,7 +45,7 @@ const Login = () => {
               ) : (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-gray-600"
+                  className="w-5 h-5 text-gray-600"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -68,25 +68,25 @@ const Login = () => {
           </div>
           <button
             type="submit"
-            className="w-full bg-[#4971BD] text-white rounded-full py-3 hover:bg-[#4971BD90] transition-colors duration-300"
+            className="btn w-full bg-[#4971BD] text-white rounded-full py-3 hover:bg-[#4971BD90] transition-colors duration-300"
           >
             Login
           </button>
         </form>
         <div className="flex flex-col w-full mt-8">
-          <div className="flex w-full justify-center mb-3">
+          <div className="flex justify-center w-full mb-3">
             <span>Are you a new member?&nbsp;</span>
             <Link to="/signup" className="text-blue hover:underline">
               Sign Up
             </Link>
           </div>
-          <div className="flex w-full items-center mb-3">
+          <div className="flex items-center w-full mb-3">
             <hr className="flex-grow border-t border-gray-300" />
             <span className="mx-8 text-gray-600">or</span>
             <hr className="flex-grow border-t border-gray-300" />
           </div>
-          <button className="btn-default font-semibold">
-            <div className="flex flex-row w-full justify-center items-center">
+          <button className="font-semibold btn btn-default">
+            <div className="flex flex-row items-center justify-center w-full">
               <div className="bg-[url('/public/assets/icons/google.png')] bg-cover bg-center w-5 h-5 mr-2.5"></div>
               <span>Sign In with Google</span>
             </div>
@@ -96,7 +96,7 @@ const Login = () => {
     );
   } else {
     return (
-      <div className="flex w-full justify-center items-center">
+      <div className="flex items-center justify-center w-full">
         <div className="flex flex-col w-[480px] shadow-xl rounded-3xl m-4 p-12">
           <div className="flex items-center mt-4 mb-8">
             <div
@@ -109,14 +109,14 @@ const Login = () => {
             <p className="mb-2">Welcome back</p>
             <h1 className="text-xl font-bold">Sign In</h1>
           </div>
-          <form className="felx flex-col w-full mb-8">
+          <form className="flex-col w-full mb-8 felx">
             <div className="flex flex-col w-full mb-4">
               <label htmlFor="email" className="sr-only">
                 Email
               </label>
               <input id="email" type="email" placeholder="Email" required />
             </div>
-            <div className="flex flex-col w-full mb-4 relative">
+            <div className="relative flex flex-col w-full mb-4">
               <label htmlFor="password" className="sr-only">
                 Password
               </label>
@@ -125,7 +125,7 @@ const Login = () => {
                 {showPassword ? (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-gray-600"
+                    className="w-5 h-5 text-gray-600"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                     onClick={togglePasswordVisibility}
@@ -136,7 +136,7 @@ const Login = () => {
                 ) : (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-gray-600"
+                    className="w-5 h-5 text-gray-600"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -152,29 +152,29 @@ const Login = () => {
                 )}
               </div>
             </div>
-            <div className="flex w-full justify-end items-center mb-4">
+            <div className="flex items-center justify-end w-full mb-4">
               <Link to="#" className="text-blue hover:underline">
                 Forgot password?
               </Link>
             </div>
-            <button type="submit" className="btn-primary">
+            <button type="submit" className="btn btn-primary">
               Login
             </button>
           </form>
           <div className="flex flex-col w-full mb-4">
-            <div className="flex w-full justify-center mb-3">
+            <div className="flex justify-center w-full mb-3">
               <span>Are you a new member?&nbsp;</span>
               <Link to="/signup" className="text-blue hover:underline">
                 Sign Up
               </Link>
             </div>
-            <div className="flex w-full items-center mb-3">
+            <div className="flex items-center w-full mb-3">
               <hr className="flex-grow border-t border-gray-300" />
               <span className="mx-8 text-gray-600">or</span>
               <hr className="flex-grow border-t border-gray-300" />
             </div>
-            <button className="btn-default font-semibold">
-              <div className="flex flex-row w-full justify-center items-center">
+            <button className="font-semibold btn btn-default">
+              <div className="flex flex-row items-center justify-center w-full">
                 <div className="bg-[url('/public/assets/icons/google.png')] bg-cover bg-center w-5 h-5 mr-2.5"></div>
                 <span>Sign In with Google</span>
               </div>
