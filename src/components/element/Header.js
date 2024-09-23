@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { getTranslation } from "../../utils/translations";
 import LoginModal from "../modal/LoginModal";
 import SignUpModal from "../modal/SignUpModal";
 
 const Header = (props) => {
+  const language = useSelector((state) => state.lang.language);
   const navigate = useNavigate();
 
   const [loginVisible, setLoginVisible] = useState(false);
@@ -25,13 +28,13 @@ const Header = (props) => {
 
         <div className="flex items-center px-4 md:px-6">
           <button onClick={() => setLoginVisible(true)} className="mr-2 font-semibold btn text-blue hover:underline">
-            Login
+            <div className="flex text-nowrap">{getTranslation(language, "login")}</div>
           </button>
           <button
             onClick={() => setSignupVisible(true)}
             className="btn btn-default text-nowrap font-bold py-1.5 px-2 md:px-4"
           >
-            Sign Up
+            <div className="flex text-nowrap">{getTranslation(language, "sign_up")}</div>
           </button>
         </div>
       </div>

@@ -3,6 +3,9 @@ const translations = {
     // Sider
     new_chat: "New Chat",
     settings: "Settings",
+    // Header
+    login: "Login",
+    sign_up: "Sign Up",
     // Home
     home_title: 'Find Your <span className="text-blue">Ideal</span> Product',
     home_desc:
@@ -79,12 +82,15 @@ const translations = {
     technical_details: "Technical Details",
     addtional_information: "Addtional Information",
     more_information: "More information",
-    see_offer: "See Offer"
+    see_offer: "See Offer",
   },
   fr: {
     // Sider
     new_chat: "Nouveau chat",
     settings: "Paramètres",
+    // Header
+    login: "Se-connecter",
+    sign_up: "S’inscrire",
     // Home
     home_title: 'Trouvez votre Produit <span className="text-blue">Idéal</span>',
     home_desc:
@@ -163,7 +169,7 @@ const translations = {
     technical_details: "Détails techniques",
     addtional_information: "Information sup",
     more_information: "+ d’info",
-    see_offer: "Voir l’offre"
+    see_offer: "Voir l’offre",
   },
 };
 
