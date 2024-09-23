@@ -35,3 +35,21 @@ export const items = [
     reviews: 4,
   },
 ];
+
+export const chatList = [
+  {
+    id: 0,
+    title: "Placeholder text here...",
+    date: "2024-09-18",
+  },
+  {
+    id: 1,
+    title: "Placeholder text here...",
+    date: "2024-09-18",
+  },
+  {
+    id: 2,
+    title: "Placeholder text here...",
+    date: "2024-09-18",
+  },
+];

@@ -1,6 +1,10 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { getTranslation } from "../../utils/translations";
 
 const ChangePassword = () => {
+  const language = useSelector((state) => state.lang.language);
+
   const [oldPasswordVisible, setOldPasswordVisible] = useState(false);
   const [newPasswordVisible, setNewPasswordVisible] = useState(false);
   const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
@@ -22,13 +26,13 @@ const ChangePassword = () => {
       <form className="flex flex-col w-full">
         <div className="flex flex-col w-full mb-4">
           <label htmlFor="oldPassword" className="font-semibold mb-1.5">
-            Old Password
+            {getTranslation(language, "old_password")}
           </label>
           <div className="relative">
             <input
               id="oldPassword"
               type={oldPasswordVisible ? "text" : "password"}
-              placeholder="Old Password"
+              placeholder={getTranslation(language, "old_password")}
               required
             />
             <div className="absolute inset-y-0 right-0 flex items-center pr-3">
@@ -59,13 +63,13 @@ const ChangePassword = () => {
         </div>
         <div className="flex flex-col w-full mb-4">
           <label htmlFor="newPassword" className="font-semibold mb-1.5">
-            New Password
+            {getTranslation(language, "new_password")}
           </label>
           <div className="relative">
             <input
               id="newPassword"
               type={newPasswordVisible ? "text" : "password"}
-              placeholder="New Password"
+              placeholder={getTranslation(language, "new_password")}
               required
             />
             <div className="absolute inset-y-0 right-0 flex items-center pr-3">
@@ -96,13 +100,13 @@ const ChangePassword = () => {
         </div>
         <div className="flex flex-col w-full mb-4">
           <label htmlFor="confirmPassword" className="font-semibold mb-1.5">
-            Confirm Password
+            {getTranslation(language, "confirm_password")}
           </label>
           <div className="relative">
             <input
               id="confirmPassword"
               type={confirmPasswordVisible ? "text" : "password"}
-              placeholder="Confirm Password"
+              placeholder={getTranslation(language, "confirm_password")}
               required
             />
             <div className="absolute inset-y-0 right-0 flex items-center pr-3">
@@ -133,7 +137,7 @@ const ChangePassword = () => {
         </div>
         <div className="mb-8">
           <button type="submit" className="btn btn-primary">
-            <span className="font-semibold">Change Password</span>
+            <span className="font-semibold">{getTranslation(language, "change_password_button")}</span>
           </button>
         </div>
       </form>
