@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Modal from "./Modal";
 import useIsMobile from "../../utils/useIsMobile";
+import { getTranslation } from "../../utils/translations";
 
 const SignUpModal = ({ visible, setVisible }) => {
+  const language = useSelector((state) => state.lang.language);
   const isMobile = useIsMobile();
 
   const [showPassword, setShowPassword] = useState(false);
@@ -33,8 +36,8 @@ const SignUpModal = ({ visible, setVisible }) => {
             <div className="bg-[url('/public/assets/logo.png')] bg-cover bg-center w-[150px] h-8" />
           </div>
           <div className="flex flex-col w-full mb-8">
-            <h1 className="mb-2 text-xl">Hey you’ve hit your free chat limit</h1>
-            <h1 className="text-xl font-bold">Sign Up to unlock all the option</h1>
+            <h1 className="mb-2 text-xl">{getTranslation(language, "chat_limit")}</h1>
+            <h1 className="text-xl font-bold">{getTranslation(language, "sign_up_unlock")}</h1>
           </div>
           <form className="flex-col w-full mb-8 felx">
             <div className="flex flex-col w-full mb-4">
@@ -45,9 +48,14 @@ const SignUpModal = ({ visible, setVisible }) => {
             </div>
             <div className="relative flex flex-col w-full mb-4">
               <label htmlFor="password" className="sr-only">
-                Password
+                {getTranslation(language, "password")}
               </label>
-              <input id="password" type={showPassword ? "text" : "password"} placeholder="Password" required />
+              <input
+                id="password"
+                type={showPassword ? "text" : "password"}
+                placeholder={getTranslation(language, "password")}
+                required
+              />
               <div className="absolute inset-y-0 right-0 flex items-center pr-3">
                 {showPassword ? (
                   <svg
@@ -81,9 +89,14 @@ const SignUpModal = ({ visible, setVisible }) => {
             </div>
             <div className="relative flex flex-col w-full mb-4">
               <label htmlFor="confirm" className="sr-only">
-                Confirm Password
+                {getTranslation(language, "confirm_password")}
               </label>
-              <input id="confirm" type={showConfirm ? "text" : "password"} placeholder="Confirm Password" required />
+              <input
+                id="confirm"
+                type={showConfirm ? "text" : "password"}
+                placeholder={getTranslation(language, "confirm_password")}
+                required
+              />
               <div className="absolute inset-y-0 right-0 flex items-center pr-3">
                 {showConfirm ? (
                   <svg
@@ -116,19 +129,19 @@ const SignUpModal = ({ visible, setVisible }) => {
               </div>
             </div>
             <button type="submit" className="btn btn-primary">
-              Continue
+              {getTranslation(language, "continue")}
             </button>
           </form>
           <div className="flex flex-col w-full mb-4">
             <div className="flex justify-center w-full mb-3">
-              <span>Already have an account?&nbsp;</span>
+              <span>{getTranslation(language, "already_have_account")}&nbsp;</span>
               <Link to="#" className="text-blue hover:underline">
-                Sign In
+                {getTranslation(language, "sign_in_link")}
               </Link>
             </div>
             <div className="flex items-center w-full mb-3">
               <hr className="flex-grow border-t border-gray-300" />
-              <span className="mx-8 text-gray-600">or</span>
+              <span className="mx-8 text-gray-600">{getTranslation(language, "or")}</span>
               <hr className="flex-grow border-t border-gray-300" />
             </div>
             <button className="font-semibold btn btn-default">
@@ -155,8 +168,8 @@ const SignUpModal = ({ visible, setVisible }) => {
               <div className="bg-[url('/public/assets/logo.png')] bg-cover bg-center w-[150px] h-8" />
             </div>
             <div className="flex flex-col w-full mb-8">
-              <h1 className="mb-2 text-xl">Hey you’ve hit your free chat limit</h1>
-              <h1 className="text-xl font-bold">Sign Up to unlock all the option</h1>
+              <h1 className="mb-2 text-xl">{getTranslation(language, "chat_limit")}</h1>
+              <h1 className="text-xl font-bold">{getTranslation(language, "sign_up_unlock")}</h1>
             </div>
             <form className="flex-col w-full mb-8 felx">
               <div className="flex flex-col w-full mb-4">
@@ -167,9 +180,14 @@ const SignUpModal = ({ visible, setVisible }) => {
               </div>
               <div className="relative flex flex-col w-full mb-4">
                 <label htmlFor="password" className="sr-only">
-                  Password
+                  {getTranslation(language, "password")}
                 </label>
-                <input id="password" type={showPassword ? "text" : "password"} placeholder="Password" required />
+                <input
+                  id="password"
+                  type={showPassword ? "text" : "password"}
+                  placeholder={getTranslation(language, "password")}
+                  required
+                />
                 <div className="absolute inset-y-0 right-0 flex items-center pr-3">
                   {showPassword ? (
                     <svg
@@ -203,9 +221,14 @@ const SignUpModal = ({ visible, setVisible }) => {
               </div>
               <div className="relative flex flex-col w-full mb-4">
                 <label htmlFor="confirm" className="sr-only">
-                  Confirm Password
+                  {getTranslation(language, "confirm_password")}
                 </label>
-                <input id="confirm" type={showConfirm ? "text" : "password"} placeholder="Confirm Password" required />
+                <input
+                  id="confirm"
+                  type={showConfirm ? "text" : "password"}
+                  placeholder={getTranslation(language, "confirm_password")}
+                  required
+                />
                 <div className="absolute inset-y-0 right-0 flex items-center pr-3">
                   {showConfirm ? (
                     <svg
@@ -238,25 +261,25 @@ const SignUpModal = ({ visible, setVisible }) => {
                 </div>
               </div>
               <button type="submit" className="btn btn-primary">
-                Continue
+                {getTranslation(language, "continue")}
               </button>
             </form>
             <div className="flex flex-col w-full mb-4">
               <div className="flex justify-center w-full mb-3 text-nowrap">
-                <span>Already have an account?&nbsp;</span>
+                <span>{getTranslation(language, "already_have_account")}&nbsp;</span>
                 <Link to="#" className="text-nowrap text-blue hover:underline">
-                  Sign In
+                  {getTranslation(language, "sign_in_link")}
                 </Link>
               </div>
               <div className="flex items-center w-full mb-3">
                 <hr className="flex-grow border-t border-gray-300" />
-                <span className="mx-8 text-gray-600">or</span>
+                <span className="mx-8 text-gray-600">{getTranslation(language, "or")}</span>
                 <hr className="flex-grow border-t border-gray-300" />
               </div>
               <button className="font-semibold btn btn-default">
                 <div className="flex flex-row items-center justify-center w-full">
                   <div className="bg-[url('/public/assets/icons/google.png')] bg-cover bg-center w-6 h-6 mr-2.5"></div>
-                  <span>Sign In with Google</span>
+                  <span>Sign Up with Google</span>
                 </div>
               </button>
             </div>

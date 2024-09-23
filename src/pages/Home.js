@@ -1,8 +1,12 @@
-import classNames from "classnames";
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import classNames from "classnames";
+import { getTranslation } from "../utils/translations";
 
 const Home = () => {
+  const language = useSelector((state) => state.lang.language);
+
   const categories = [
     {
       name: "Television",
@@ -72,16 +76,20 @@ const Home = () => {
       <div className="flex flex-col justify-center flex-1 p-4 text-center md:text-left md:p-6">
         <div className="flex flex-col max-w-[650px] w-full">
           <div className="flex flex-col w-fit">
-            <h1 className="text-2xl font-bold md:text-5xl">
-              Find Your <span className="text-blue">Ideal</span> Product
-            </h1>
-            <p className="mt-3 text-xl text-gray-700 md:text-2xl">
-              Customized to Your <span className="font-bold">Needs</span>, Guaranteed at the{" "}
-              <span className="font-bold">Best Price</span>
-            </p>
+            <h1
+              className="text-2xl font-bold md:text-5xl"
+              dangerouslySetInnerHTML={{ __html: getTranslation(language, "home_title") }}
+            ></h1>
+            <p
+              className="mt-3 text-xl text-gray-700 md:text-2xl"
+              dangerouslySetInnerHTML={{ __html: getTranslation(language, "home_desc") }}
+            ></p>
           </div>
           <div className="mt-12">
-            <h2 className="my-6 text-gray-600 text-md md:text-2xl">Select the category you need our help with.</h2>
+            <h2
+              className="my-6 text-gray-600 text-md md:text-2xl"
+              dangerouslySetInnerHTML={{ __html: getTranslation(language, "home_category_desc") }}
+            ></h2>
             <div className="flex flex-row flex-wrap justify-center gap-3 mt-6 md:justify-start">
               {categories.map((category) => (
                 <CategoryCard key={category.name} category={category} />

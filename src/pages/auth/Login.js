@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { getTranslation } from "../../utils/translations";
 import useIsMobile from "../../utils/useIsMobile";
 
 const Login = () => {
+  const language = useSelector((state) => state.lang.language);
   const navigate = useNavigate();
   const isMobile = useIsMobile();
+
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -16,7 +20,7 @@ const Login = () => {
       <div className="flex flex-col w-full p-4 mx-4">
         <div className="mt-20">
           <p className="mb-2">Welcome back</p>
-          <h1 className="text-xl font-bold">Sign In</h1>
+          <h1 className="text-xl font-bold">{getTranslation(language, "sign_in_title")}</h1>
         </div>
         <form className="mt-8">
           <div className="flex flex-col w-full mb-4">
@@ -27,9 +31,14 @@ const Login = () => {
           </div>
           <div className="relative flex flex-col w-full mb-4">
             <label htmlFor="password" className="sr-only">
-              Password
+              {getTranslation(language, "password")}
             </label>
-            <input id="password" type={showPassword ? "text" : "password"} placeholder="Password" required />
+            <input
+              id="password"
+              type={showPassword ? "text" : "password"}
+              placeholder={getTranslation(language, "password")}
+              required
+            />
             <div className="absolute inset-y-0 right-0 flex items-center pr-3">
               {showPassword ? (
                 <svg
@@ -63,26 +72,26 @@ const Login = () => {
           </div>
           <div className="flex justify-end mb-4">
             <Link to="#" className="text-[#4971BD] hover:underline">
-              Forgot password?
+              {getTranslation(language, "forgot_password")}
             </Link>
           </div>
           <button
             type="submit"
             className="btn w-full bg-[#4971BD] text-white rounded-full py-3 hover:bg-[#4971BD90] transition-colors duration-300"
           >
-            Login
+            {getTranslation(language, "sign_in_button")}
           </button>
         </form>
         <div className="flex flex-col w-full mt-8">
           <div className="flex justify-center w-full mb-3">
-            <span>Are you a new member?&nbsp;</span>
+            <span>{getTranslation(language, "new_member")}&nbsp;</span>
             <Link to="/signup" className="text-blue hover:underline">
-              Sign Up
+              {getTranslation(language, "sign_up_link")}
             </Link>
           </div>
           <div className="flex items-center w-full mb-3">
             <hr className="flex-grow border-t border-gray-300" />
-            <span className="mx-8 text-gray-600">or</span>
+            <span className="mx-8 text-gray-600">{getTranslation(language, "or")}</span>
             <hr className="flex-grow border-t border-gray-300" />
           </div>
           <button className="font-semibold btn btn-default">
@@ -107,7 +116,7 @@ const Login = () => {
           </div>
           <div className="flex flex-col w-full mb-8">
             <p className="mb-2">Welcome back</p>
-            <h1 className="text-xl font-bold">Sign In</h1>
+            <h1 className="text-xl font-bold">{getTranslation(language, "sign_in_title")}</h1>
           </div>
           <form className="flex-col w-full mb-8 felx">
             <div className="flex flex-col w-full mb-4">
@@ -118,9 +127,14 @@ const Login = () => {
             </div>
             <div className="relative flex flex-col w-full mb-4">
               <label htmlFor="password" className="sr-only">
-                Password
+                {getTranslation(language, "password")}
               </label>
-              <input id="password" type={showPassword ? "text" : "password"} placeholder="Password" required />
+              <input
+                id="password"
+                type={showPassword ? "text" : "password"}
+                placeholder={getTranslation(language, "password")}
+                required
+              />
               <div className="absolute inset-y-0 right-0 flex items-center pr-3">
                 {showPassword ? (
                   <svg
@@ -154,23 +168,23 @@ const Login = () => {
             </div>
             <div className="flex items-center justify-end w-full mb-4">
               <Link to="#" className="text-blue hover:underline">
-                Forgot password?
+                {getTranslation(language, "forgot_password")}
               </Link>
             </div>
             <button type="submit" className="btn btn-primary">
-              Login
+              {getTranslation(language, "sign_in_button")}
             </button>
           </form>
           <div className="flex flex-col w-full mb-4">
             <div className="flex justify-center w-full mb-3">
-              <span>Are you a new member?&nbsp;</span>
+              <span>{getTranslation(language, "new_member")}&nbsp;</span>
               <Link to="/signup" className="text-blue hover:underline">
-                Sign Up
+                {getTranslation(language, "sign_up_link")}
               </Link>
             </div>
             <div className="flex items-center w-full mb-3">
               <hr className="flex-grow border-t border-gray-300" />
-              <span className="mx-8 text-gray-600">or</span>
+              <span className="mx-8 text-gray-600">{getTranslation(language, "or")}</span>
               <hr className="flex-grow border-t border-gray-300" />
             </div>
             <button className="font-semibold btn btn-default">

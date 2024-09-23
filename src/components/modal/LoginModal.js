@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Modal from "./Modal";
 import useIsMobile from "../../utils/useIsMobile";
+import { getTranslation } from "../../utils/translations";
 
 const LoginModal = ({ visible, setVisible }) => {
+  const language = useSelector((state) => state.lang.language);
   const isMobile = useIsMobile();
 
   const [showPassword, setShowPassword] = useState(false);
@@ -29,7 +32,7 @@ const LoginModal = ({ visible, setVisible }) => {
           </div>
           <div className="flex flex-col w-full mb-8">
             <p className="mb-2">Welcome back</p>
-            <h1 className="text-xl font-bold">Sign In</h1>
+            <h1 className="text-xl font-bold">{getTranslation(language, "sign_in_title")}</h1>
           </div>
           <form className="flex-col w-full mb-8 felx">
             <div className="flex flex-col w-full mb-4">
@@ -40,9 +43,14 @@ const LoginModal = ({ visible, setVisible }) => {
             </div>
             <div className="relative flex flex-col w-full mb-4">
               <label htmlFor="password" className="sr-only">
-                Password
+                {getTranslation(language, "password")}
               </label>
-              <input id="password" type={showPassword ? "text" : "password"} placeholder="Password" required />
+              <input
+                id="password"
+                type={showPassword ? "text" : "password"}
+                placeholder={getTranslation(language, "password")}
+                required
+              />
               <div className="absolute inset-y-0 right-0 flex items-center pr-3">
                 {showPassword ? (
                   <svg
@@ -76,18 +84,18 @@ const LoginModal = ({ visible, setVisible }) => {
             </div>
             <div className="flex items-center justify-end w-full mb-4">
               <Link to="#" className="text-blue hover:underline">
-                Forgot password?
+                {getTranslation(language, "forgot_password")}
               </Link>
             </div>
             <button type="submit" className="btn btn-primary">
-              Login
+              {getTranslation(language, "sign_in_button")}
             </button>
           </form>
           <div className="flex flex-col w-full mb-4">
             <div className="flex justify-center w-full mb-3">
-              <span>Are you a new member?&nbsp;</span>
+              <span>{getTranslation(language, "new_member")}&nbsp;</span>
               <Link to="#" className="text-blue hover:underline">
-                Sign Up
+                {getTranslation(language, "sign_up_link")}
               </Link>
             </div>
             <div className="flex items-center w-full mb-3">
@@ -121,7 +129,7 @@ const LoginModal = ({ visible, setVisible }) => {
               </div>
               <div className="flex flex-col w-full mb-8">
                 <p className="mb-2">Welcome back</p>
-                <h1 className="text-xl font-bold">Sign In</h1>
+                <h1 className="text-xl font-bold">{getTranslation(language, "sign_in_title")}</h1>
               </div>
               <form className="flex-col w-full mb-8 felx">
                 <div className="flex flex-col w-full mb-4">
@@ -132,9 +140,14 @@ const LoginModal = ({ visible, setVisible }) => {
                 </div>
                 <div className="relative flex flex-col w-full mb-4">
                   <label htmlFor="password" className="sr-only">
-                    Password
+                    {getTranslation(language, "password")}
                   </label>
-                  <input id="password" type={showPassword ? "text" : "password"} placeholder="Password" required />
+                  <input
+                    id="password"
+                    type={showPassword ? "text" : "password"}
+                    placeholder={getTranslation(language, "password")}
+                    required
+                  />
                   <div className="absolute inset-y-0 right-0 flex items-center pr-3">
                     {showPassword ? (
                       <svg
@@ -168,18 +181,18 @@ const LoginModal = ({ visible, setVisible }) => {
                 </div>
                 <div className="flex items-center justify-end w-full mb-4">
                   <Link to="#" className="text-blue hover:underline">
-                    Forgot password?
+                    {getTranslation(language, "forgot_password")}
                   </Link>
                 </div>
                 <button type="submit" className="btn btn-primary">
-                  Login
+                  {getTranslation(language, "sign_in_button")}
                 </button>
               </form>
               <div className="flex flex-col w-full mb-4">
                 <div className="flex justify-center w-full mb-3 text-nowrap">
-                  <span>Are you a new member?&nbsp;</span>
+                  <span>{getTranslation(language, "new_member")}&nbsp;</span>
                   <Link to="#" className="text-nowrap text-blue hover:underline">
-                    Sign Up
+                    {getTranslation(language, "sign_up_link")}
                   </Link>
                 </div>
                 <div className="flex items-center w-full mb-3">

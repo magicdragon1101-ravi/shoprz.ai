@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import classNames from "classnames";
+import { getTranslation } from "../../utils/translations";
+import useIsMobile from "../../utils/useIsMobile";
 import Carousel from "../../components/common/Carousel";
 import { items } from "../../utils/items";
-import useIsMobile from "../../utils/useIsMobile";
 import Detail from "./Detail";
 
 const Chat = () => {
+  const language = useSelector((state) => state.lang.language);
   const isMobile = useIsMobile();
   const navigate = useNavigate();
 
@@ -37,7 +40,7 @@ const Chat = () => {
   };
 
   if (isMobile) {
-    return (
+    return active === null ? (
       <div className="flex flex-col w-full p-4">
         <div className="flex-grow">
           <div
@@ -46,14 +49,13 @@ const Chat = () => {
           />
           {list.length === 0 ? (
             <div className="flex flex-col w-full">
-              <h1 className="text-[22px] font-bold leading-10 my-4 py-3">What do we start with your new TV Inquiry?</h1>
+              <h1 className="text-[22px] font-bold leading-10 my-4 py-3">{getTranslation(language, "chat_title")}</h1>
               <div className="flex flex-row items-center w-full">
                 <div className="w-10 h-10 mr-3">
                   <div className="bg-[url('/public/assets/icons/init.png')] bg-cover bg-center w-full h-full aspect-square rounded-full" />
                 </div>
                 <div className="flex flex-col font-semibold text-left text-md">
-                  <p>I’m here to assist you in planning your next purchase.</p>
-                  <p>Ask me anything about TV!</p>
+                  {getTranslation(language, "chat_desc")}
                 </div>
               </div>
             </div>
@@ -90,18 +92,20 @@ const Chat = () => {
               <hr className="my-4" />
               <Carousel showButton={true}>
                 {items.map((item, index) => (
-                  <Link key={index} to={`/detail?${item.id}`}>
-                    <div className="flex flex-col flex-shrink-0 snap-start w-[200px] h-[180px] border-2 rounded-lg py-1.5 px-3">
-                      <div className="relative bg-[url('/public/assets/image/default.png')] bg-stretch bg-no-repeat w-full h-full bg-center rounded">
-                        <div className="absolute bg-green-50 text-green font-semibold -left-1.5 -top-1 py-1 px-1.5 rounded-full">
-                          {item.match}% matching
-                        </div>
-                      </div>
-                      <div className="mt-2">
-                        <h2 className="text-sm font-semibold">{item.title}</h2>
+                  <div
+                    key={index}
+                    onClick={() => setActive(item.id)}
+                    className="flex flex-col flex-shrink-0 snap-start w-[200px] h-[180px] border-2 rounded-lg py-1.5 px-3 cursor-pointer"
+                  >
+                    <div className="relative bg-[url('/public/assets/image/default.png')] bg-stretch bg-no-repeat w-full h-full bg-center rounded">
+                      <div className="absolute bg-green-50 text-green font-semibold -left-1.5 -top-1 py-1 px-1.5 rounded-full">
+                        {getTranslation(language, "matching")} {item.match}%
                       </div>
                     </div>
-                  </Link>
+                    <div className="mt-2">
+                      <h2 className="text-sm font-semibold">{item.title}</h2>
+                    </div>
+                  </div>
                 ))}
               </Carousel>
             </div>
@@ -115,7 +119,7 @@ const Chat = () => {
             value={conversation}
             onChange={onChange}
             onKeyDown={onKeyDown}
-            placeholder="Start a conversation"
+            placeholder={getTranslation(language, "start_conversation")}
             required
           />
           <div className="absolute inset-y-0 right-0 flex items-center">
@@ -129,6 +133,8 @@ const Chat = () => {
           </div>
         </div>
       </div>
+    ) : (
+      <Detail id={active} setId={setActive} />
     );
   } else {
     return (
@@ -141,16 +147,13 @@ const Chat = () => {
             />
             {list.length === 0 ? (
               <div className="flex flex-col w-full">
-                <h1 className="text-[22px] font-bold leading-10 my-4 py-3">
-                  What do we start with your new TV Inquiry?
-                </h1>
+                <h1 className="text-[22px] font-bold leading-10 my-4 py-3">{getTranslation(language, "chat_title")}</h1>
                 <div className="flex flex-row items-center w-full">
                   <div className="w-10 h-10 mr-3">
                     <div className="bg-[url('/public/assets/icons/init.png')] bg-cover bg-center w-full h-full aspect-square rounded-full" />
                   </div>
                   <div className="flex flex-col font-semibold text-left text-md">
-                    <p>I’m here to assist you in planning your next purchase.</p>
-                    <p>Ask me anything about TV!</p>
+                    {getTranslation(language, "chat_desc")}
                   </div>
                 </div>
               </div>
@@ -194,7 +197,7 @@ const Chat = () => {
                     >
                       <div className="relative bg-[url('/public/assets/image/default.png')] bg-stretch bg-no-repeat w-full h-full bg-center rounded">
                         <div className="absolute bg-green-50 text-green font-semibold -left-1.5 -top-1 py-1 px-1.5 rounded-full">
-                          {item.match}% matching
+                          {getTranslation(language, "matching")} {item.match}%
                         </div>
                       </div>
                       <div className="mt-2">
@@ -214,7 +217,7 @@ const Chat = () => {
               value={conversation}
               onChange={onChange}
               onKeyDown={onKeyDown}
-              placeholder="Start a conversation"
+              placeholder={getTranslation(language, "start_conversation")}
               required
             />
             <div className="absolute inset-y-0 right-0 flex items-center">
@@ -238,11 +241,8 @@ const Chat = () => {
                   <div className="w-10 h-10 mb-3">
                     <div className="bg-[url('/public/assets/icons/answer.png')] w-full h-full aspect-square bg-cover bg-center" />
                   </div>
-                  <div className="font-semibold">No insights</div>
-                  <p className="p-12 text-center">
-                    Here I will show your product based on your answers to help you understand them better and find the
-                    perfect need.
-                  </p>
+                  <div className="font-semibold">{getTranslation(language, "no_insights")}</div>
+                  <p className="p-12 text-center">{getTranslation(language, "no_insights_desc")}</p>
                 </div>
               ) : (
                 <div className="flex flex-col w-full h-[calc(100%-306px)] bg-[#EDF1FD] p-3">
@@ -251,7 +251,7 @@ const Chat = () => {
                     {items.map((item, index) => (
                       <div key={index} className="flex flex-col p-3 bg-white rounded-lg">
                         <div className="w-fit bg-green-50 text-green py-1 px-1.5 rounded-full mb-2.5">
-                          {item.match}% matching
+                          {getTranslation(language, "matching")} {item.match}%
                         </div>
                         <div className="font-semibold">{item.title}</div>
                       </div>

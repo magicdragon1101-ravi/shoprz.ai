@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import moment from "moment";
 import classNames from "classnames";
 import useIsMobile from "../../utils/useIsMobile";
+import { setLanguage } from "../../store/slice/langSlice";
+import { getTranslation } from "../../utils/translations";
+import { chatList } from "../../utils/items";
 
 const MenuItem = React.memo(({ src, alt, label, onClick, className }) => (
   <div
@@ -17,6 +22,9 @@ const MenuItem = React.memo(({ src, alt, label, onClick, className }) => (
 ));
 
 const Sider = ({ visible, setVisible }) => {
+  const dispatch = useDispatch();
+  const language = useSelector((state) => state.lang.language);
+
   const navigate = useNavigate();
   const isMobile = useIsMobile();
 
@@ -25,6 +33,10 @@ const Sider = ({ visible, setVisible }) => {
   const handleNavigation = (path) => {
     navigate(path);
     setVisible(false);
+  };
+
+  const handleLanguageChange = (e) => {
+    dispatch(setLanguage(e.target.value));
   };
 
   return (
@@ -73,11 +85,11 @@ const Sider = ({ visible, setVisible }) => {
                     </div>
                     {chatCollapse && (
                       <div className="flex flex-col w-full pl-11">
-                        {[...Array(3)].map((_, index) => (
-                          <div key={index} className="flex items-start justify-between mb-3">
+                        {chatList.map((item) => (
+                          <div key={item.id} className="flex items-start justify-between mb-3">
                             <div className="flex flex-col">
-                              <div className="text-md">Placeholder text here...</div>
-                              <div className="text-sm text-gray-400">Sun Sep 01-24</div>
+                              <div className="text-md">{item.title}</div>
+                              <div className="text-sm text-gray-400">{moment(item.date).format(getTranslation(language, "date_format"))}</div>
                             </div>
                             <div
                               onClick={() => alert("delete")}
@@ -93,7 +105,7 @@ const Sider = ({ visible, setVisible }) => {
                   <MenuItem
                     src="/assets/icons/answer.png"
                     alt="New Chat"
-                    label="New Chat"
+                    label={getTranslation(language, "new_chat")}
                     onClick={() => handleNavigation("/chat")}
                     className="mb-3"
                   />
@@ -101,19 +113,19 @@ const Sider = ({ visible, setVisible }) => {
               </div>
 
               <div className="flex flex-col w-full pl-1">
-                <div className="mx-3 mb-4">Privacy Policy</div>
-                <div className="mx-3 mb-4">Terms & Conditions</div>
+                <div className="mx-3 mb-4">{getTranslation(language, "privacy_policy")}</div>
+                <div className="mx-3 mb-4">{getTranslation(language, "terms_and_conditions")}</div>
                 <hr className="mb-4 ml-3" />
                 <Link to="/profile" onClick={() => setVisible(false)}>
                   <div className="flex items-center mx-3 mb-4">
                     <div className="bg-[url('/public/assets/icons/account.png')] bg-cover bg-center w-6 h-6 mr-1.5"></div>
-                    <div>My Account</div>
+                    <div>{getTranslation(language, "my_account")}</div>
                   </div>
                 </Link>
                 <Link to="#" onClick={() => setVisible(false)}>
                   <div className="flex items-center mx-3 mb-4">
                     <div className="bg-[url('/public/assets/icons/settings.png')] bg-cover bg-center w-6 h-6 mr-1.5"></div>
-                    <div>Settings</div>
+                    <div>{getTranslation(language, "settings")}</div>
                   </div>
                 </Link>
                 <Link to="/signout" onClick={() => setVisible(false)}>
@@ -148,16 +160,20 @@ const Sider = ({ visible, setVisible }) => {
               <MenuItem
                 src="/assets/icons/add_circle-l.png"
                 alt="New Chat"
-                label="New Chat"
+                label={getTranslation(language, "new_chat")}
                 onClick={() => handleNavigation("/chat")}
               />
             </div>
 
             <div className="flex flex-col items-center py-6 px-0.5">
+              <select onChange={handleLanguageChange} value={language} className="px-3 py-1 hover:cursor-pointer">
+                <option value="en">En</option>
+                <option value="fr">Fr</option>
+              </select>
               <MenuItem
                 src="/assets/icons/settings.png"
                 alt="Settings"
-                label="Settings"
+                label={getTranslation(language, "settings")}
                 onClick={() => handleNavigation("#")}
               />
             </div>
