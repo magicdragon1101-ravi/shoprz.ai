@@ -139,7 +139,7 @@ const Sider = ({ visible, setVisible }) => {
           </div>
         </div>
       ) : (
-        <div className="sticky top-0 w-20 h-full border-r shadow-sm">
+        <div className="sticky top-0 w-24 h-full border-r shadow-sm">
           <div className="flex flex-col items-center justify-between h-full py-5">
             <div className="flex flex-col w-full gap-3 mt-2">
               <MenuItem
